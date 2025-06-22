@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app2/ui/screens/add_bottom_sheet/add_bottom_sheet.dart';
 import 'package:todo_app2/ui/screens/home/tabs/list/list_tab.dart';
 import 'package:todo_app2/ui/screens/home/tabs/settings/settings_tab.dart';
 import 'package:todo_app2/ui/utils/app_color.dart';
@@ -24,6 +25,7 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: buildBottomNavigationBar(),
       floatingActionButton: buildFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
     );
   }
 
@@ -49,8 +51,10 @@ class _HomeState extends State<Home> {
 
   Widget buildFab()=>FloatingActionButton(
     backgroundColor: AppColors.primary,
-    shape: const StadiumBorder(side: BorderSide(color: Colors.white,width: 4)),
-    onPressed: (){},
+    shape: const StadiumBorder(side: BorderSide(color: AppColors.white,width: 4)),
+    onPressed: (){
+      AddBottomSheet.show(context);
+    },
     child: const Icon(Icons.add),
   );
 }
