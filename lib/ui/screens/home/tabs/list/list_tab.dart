@@ -25,6 +25,7 @@ class _ListTabState extends State<ListTab> {
 
   buildCalender() {
     return Expanded(
+      
       flex: 3,
       child: Stack(
         children:[ 
@@ -38,38 +39,42 @@ class _ListTabState extends State<ListTab> {
             firstDate: DateTime.now().subtract(Duration(days: 365)),
             focusDate: selectedCalenderDate,
             lastDate: DateTime.now().add(Duration(days: 365)),
-          onDateChange: (selectedDate){},
-          itemBuilder: (context,date,isSelected,onDateTapped){
-              return InkWell(
-                onTap: (){
-                  setState(() {
-                    selectedCalenderDate=date;
-                  });
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      Spacer(),
-                      Text(date.dayName,
-                        style: isSelected?AppStyle.selectedCalendarDayStyle:AppStyle.unSelectedCalendarDayStyle ,
-                      ),
-                      Spacer(),
-                      Text(date.day.toString(),
-                          style: isSelected?AppStyle.selectedCalendarDayStyle:AppStyle.unSelectedCalendarDayStyle ),
-                      Spacer(),
-                    ],
-                  ),
-                ),
-              );
-          },
+          onDateChange: (selectedDate){
+              setState(() {
+                selectedCalenderDate=selectedDate;
+              });
+              },
+            // itemBuilder: (context,date,isSelected,onDateTapped){
+          //     return InkWell(
+          //       onTap: (){
+          //         setState(() {
+          //           selectedCalenderDate=date;
+          //         });
+          //       },
+          //       child: Container(
+          //         decoration: BoxDecoration(
+          //           color: AppColors.white,
+          //           borderRadius: BorderRadius.circular(20),
+          //         ),
+          //         child: Column(
+          //           children: [
+          //             Spacer(),
+          //             Text(date.dayName,
+          //               style: isSelected?AppStyle.selectedCalendarDayStyle:AppStyle.unSelectedCalendarDayStyle ,
+          //             ),
+          //             Spacer(),
+          //             Text(date.day.toString(),
+          //                 style: isSelected?AppStyle.selectedCalendarDayStyle:AppStyle.unSelectedCalendarDayStyle ),
+          //             Spacer(),
+          //           ],
+          //         ),
+          //       ),
+          //     );
+          // },
         ),
       ]
       ),
     );
   }
-  void onDateTapped(){}
+  //void onDateTapped(){}
 }
